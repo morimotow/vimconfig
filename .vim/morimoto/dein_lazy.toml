@@ -1,0 +1,93 @@
+
+# Shellなどの実行機能
+repo = 'thinca/vim-quickrun'
+on_cmd    = ['QuickRun']
+on_map = ['nxo', '<Plug>(quickrun)']
+
+
+# Unite
+[[plugins]]
+repo = 'Shougo/unite.vim'
+on_cmd    = ['Unite']
+hook_add = '''
+  call M_LoadLocalBaseSetting('_plug_unite.vim')
+'''
+
+# VimFiler
+[[plugins]]
+repo = 'Shougo/vimfiler'
+depends = ['Shougo/unite.vim']
+on_cmd    = ['VimFiler', 'VimFilerExplorer', 'Edit', 'Read', 'Source', 'Write']
+hook_add = '''
+  call M_LoadLocalBaseSetting('_plug_vimfiler.vim')
+'''
+
+# Markdown編集
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+on_ft = 'markdown'
+
+[[plugins]]
+repo = 'kannokanno/previm'
+on_ft = 'markdown'
+hook_add = '''
+  call M_LoadLocalBaseSetting('_plug_previm.vim')
+'''
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+on_ft = 'markdown'
+
+
+# SQL文実行
+[[plugins]]
+repo = 'vim-scripts/dbext.vim'
+on_ft = 'sql'
+hook_add = '''
+  call M_LoadLocalBaseSetting('_plug_dbext.vim')
+'''
+
+
+
+# ctags読み込み
+[[plugins]]
+repo = 'majutsushi/tagbar'
+on_cmd = ['TagbarToggle']
+
+# 文法チェック
+[[plugins]]
+repo = 'scrooloose/syntastic'
+on_cmd = ['SyntasticCheck']
+hook_add = '''
+  call M_LoadLocalBaseSetting('_plug_syntastic.vim')
+'''
+
+# 文字列整形
+[[plugins]]
+repo = 'junegunn/vim-easy-align'
+on_cmd = ['EasyAlign']
+
+
+# 文字列補完機能
+[[plugins]]
+repo = 'Shougo/neocomplete'
+on_i = 1
+if = '''
+  has('lua')
+'''
+hook_add = '''
+  call M_LoadLocalBaseSetting('_plug_neocomplete.vim')
+'''
+
+
+# 定型文
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+on_i = 1
+
+[[plugins]]
+repo = 'Shougo/neosnippet'
+on_i = 1
+hook_add = '''
+  call M_LoadLocalBaseSetting('_plug_neosnippet.vim')
+'''

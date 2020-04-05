@@ -1,0 +1,43 @@
+# プラグインマネージャ本体
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+# vimproc(windows/mac版は同梱)
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+if = '''
+  !has('win32') && !has('mac')
+'''
+
+# プロジェクト管理
+[[plugins]]
+repo = 'vimplugin/project.vim'
+hook_add = '''
+  call M_LoadLocalBaseSetting('_plug_project.vim')
+'''
+
+# 日本語ヘルプ
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
+
+# 囲み文字テキストオブジェクト
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+# テキストオブジェクト置換
+[[plugins]]
+repo = 'kana/vim-operator-replace'
+depends = ['vim-operator-user']
+hook_add = 'map R  <Plug>(operator-replace)'
+
+[[plugins]]
+repo = 'kana/vim-operator-user'
+
+# プロジェクト毎に設定ファイルを分ける
+[[plugins]]
+repo = 'embear/vim-localvimrc'
+hook_add = '''
+  call M_LoadLocalBaseSetting('_plug_localvimrc.vim')
+'''
+
